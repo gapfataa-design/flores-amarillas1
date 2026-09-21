@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0b0b1a;
+  background-image: radial-gradient(circle at center, #1a1a3a 0%, #05050d 100%);
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Espacio donde flotan los elementos */
+#universe {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Estilo para las flores y frases */
+.flower, .phrase {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  animation: float 3s ease-in-out infinite alternate;
+  text-shadow: 0 0 12px rgba(255, 223, 0, 0.8);
+}
+
+.flower {
+  font-size: 2.2rem;
+}
+
+.phrase {
+  color: #fffbcf;
+  font-weight: bold;
+  font-size: 0.9rem;
+  background: rgba(255, 215, 0, 0.15);
+  padding: 4px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 215, 0, 0.4);
+  white-space: nowrap;
+}
+
+/* Animación de flotado suave */
+@keyframes float {
+  0% { transform: translate(-50%, -50%) translateY(0px) scale(1); }
+  100% { transform: translate(-50%, -50%) translateY(-12px) scale(1.08); }
+}
+
+/* Estilo de la carta del centro */
+.card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(135deg, #fff9c4, #fff176);
+  color: #5d4037;
+  padding: 25px 20px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.5);
+  text-align: center;
+  max-width: 320px;
+  width: 85%;
+  z-index: 10;
+  border: 2px solid #fbc02d;
+}
+
+.card h2 {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  color: #f57f17;
+}
+
+.card p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin-bottom: 15px;
+}
+
+.card h3 {
+  font-size: 1.1rem;
+  color: #d84315;
+  margin-bottom: 15px;
+}
+
+.card button {
+  background-color: #fbc02d;
+  color: #3e2723;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15)

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flores Amarillas para Ti 🌻</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Contenedor principal del universo de flores -->
+  <div id="universe"></div>
+
+  <!-- Tarjeta con mensaje flotante -->
+  <div class="card" id="loveCard">
+    <h2>🌻 Para el amor de mi vida 🌻</h2>
+    <p>
+      Estas flores amarillas son como tú: brillantes, radiantes y llenas de alegría.
+      Gracias por iluminar cada uno de mis días. Eres simplemente hermosa.
+    </p>
+    <h3>¡Te Amo Mucho! ❤️</h3>
+    <button onclick="cerrarCarta()">Cerrar</button>
+  </div>
+
+  <script>
+    // Generar flores y frases flotantes en espiral
+    const universe = document.getElementById('universe');
+    const frases = [
+      "Eres mi sol ☀️", "Te amo ❤️", "Eres preciosa ✨", 
+      "Siempre juntos 💑", "Mi amor 💛", "Amor de mi vida 🥰", 
+      "Me encantas 🌻", "Eres única 🌟"
+    ];
+
+    const totalElementos = 40;
+
+    for (let i = 0; i < totalElementos; i++) {
+      const el = document.createElement('div');
+      const esFlor = Math.random() > 0.4;
+      
+      el.className = esFlor ? 'flower' : 'phrase';
+      el.innerHTML = esFlor ? '🌻' : frases[i % frases.length];
+
+      // Cálculo de posiciones en espiral 3D
+      const angle = i * 0.4;
+      const radius = 15 * i + 20;
+      const x = Math.cos(angle) * radius;
+      const y = Math.sin(angle) * radius;
+
+      el.style.left = `calc(50% + ${x}px)`;
+      el.style.top = `calc(45% + ${y}px)`;
+      el.style.animationDelay = `${(i % 5) * 0.6}s`;
+
+      universe.appendChild(el);
+    }
+
+    function cerrarCarta() {
+      document.getElementById('loveCard').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
